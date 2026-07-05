@@ -51,7 +51,7 @@ try:
 except Exception:
     chromadb = None
 
-class Load_Config:
+class LoadConfig:
     def __init__(self) -> None:
         with open(here("config/app_config.yml")) as configure:
             app_configuration= yaml.load(configure, Loader=yaml.FullLoader) #converts the yaml text to python code
