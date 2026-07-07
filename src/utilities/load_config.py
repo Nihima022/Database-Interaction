@@ -72,8 +72,8 @@ class LoadConfig:
     def load_llm_config(self, app_config):
         self.agent_llm_system_role=app_config["llm_config"]["agent_llm_system_role"]
         self.rag_llm_system_role=app_config["llm_config"]["rag_llm_system_role"]
-        self.model_name=os.getenv(MODEL_NAME)
-        self.embedding_model_name=os.getenv(EMBEDDING_MODEL)
+        self.model_name=os.getenv("MODEL_NAME")
+        self.embedding_model_name=os.getenv("EMBEDDING_MODEL")
         self.temperature=app_config["llm_config"]["temperature"]
 
     def load_rag_config(self, app_config):

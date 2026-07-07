@@ -1,7 +1,7 @@
 import os
 import pandas as pd
 
-from load_config import LoadConfig
+from utilities.load_config import LoadConfig
 
 #Sqlalchemy is used to make conversation between python and database
 from sqlalchemy import create_engine
@@ -36,14 +36,16 @@ class Prepare_SQL_from_Tabular_Data:
             full_file_path=os.path.join(self.file_directory, file)             #data/csv_xlsx/Cancer_Data.csv or #data/csv_xlsx/diabetes.csv
             if file.endswith(".csv"):
                 df=pd.read_csv(full_file_path)                                 #from csv to converted into dataframe
-            if file.endswith(".xlsx"):
+            elif file.endswith(".xlsx"):
                 df=pd.read_excel(full_file_path)
             else:
                 print("File type not supported.")
+
             file_name=os.path.splitext(file)[0]                                #Cancer or diabetes
             file_extension=os.path.splitext(file)[1]                           #.csv
-            df.to_sql(file_name,if_exists='replace', index=False)              #dataframe converted to SQL
+            SQL=df.to_sql(file_name,self.engine,if_exists='replace', index=False)              #dataframe converted to SQL
             print("SQL File creation Successfully Done")
+            print(SQL)
 
     #Step 3: Validate the New Created SQL DB , if the tables are present there or not
     def validate_SQL_DB(self):
