@@ -7,18 +7,17 @@ import shutil
 #it is used for manipulate files like copy delete extract and all
 
 import dotenv
-from chromadb.api import EMBEDDING_KEY
 
 from dotenv import load_dotenv
-from langchain_community.callbacks.fiddler_callback import MODEL_NAME
-from openai.types import EmbeddingModel
+
+load_dotenv()
 
 #used to create path directory and find the exact location of file
 try:
     from pyprojroot import here
     #pyprojroot acts like GPS of the file. It easily finds the main folder of any file using here() function
 except Exception:
-    #this is backup code..it is used when the system fail to work with pyprojroot
+    #this is backup code.it is used when the system fail to work with pyprojroot
     from pathlib import Path
     def here(p=" "):
         root= Path(__file__).resolve().parents[0]
