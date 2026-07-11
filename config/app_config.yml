@@ -16,7 +16,7 @@ llm_config:
                         SQL result:{result}\n
                         Answer: "
   rag_llm_system_role: "You will receive the user's question along with the search results of that question over a database. Give the user the proper answer."
-  engine: "gpt-3.5-turbo"
+  engine: "gpt-4.o-mini"
   temperature: 0.0
 
 rag_config:

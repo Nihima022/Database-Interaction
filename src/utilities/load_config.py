@@ -10,6 +10,8 @@ import dotenv
 
 from dotenv import load_dotenv
 
+from openai import OpenAI
+
 load_dotenv()
 
 #used to create path directory and find the exact location of file
@@ -73,12 +75,20 @@ class LoadConfig:
         self.agent_llm_system_role=app_config["llm_config"]["agent_llm_system_role"]
         self.rag_llm_system_role=app_config["llm_config"]["rag_llm_system_role"]
         self.model_name=os.getenv("MODEL_NAME")
+        self.api_key=os.getenv("API_KEY")
+        self.base_url=os.getenv("BASE_URL")
         self.embedding_model_name=os.getenv("EMBEDDING_MODEL")
         self.temperature=app_config["llm_config"]["temperature"]
 
     def load_rag_config(self, app_config):
         self.collection_name=app_config["rag_config"]["collection_name"]
         self.top_k=app_config["rag_config"]["top_k"]
+
+    def load_openai_config(self):
+        self.openai_client=OpenAI(
+            api_key=os.getenv("OPENAI_API_KEY"),
+            base_url=os.getenv("OPENAI_BASE_URL"),
+        )
 
     def load_chroma_client(self):
         if chromadb is None:
