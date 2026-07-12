@@ -60,6 +60,7 @@ class LoadConfig:
             self.load_directories(app_config=app_configuration)
             self.load_llm_config(app_config=app_configuration)
             self.load_rag_config(app_config=app_configuration)
+            self.load_openai_config()
             self.load_chroma_client()                         #it doesnt require app_config cause it use data already stored in the object, such as:
 
     def load_directories(self,app_config):

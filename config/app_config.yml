@@ -3,7 +3,7 @@
 directories:
   stored_csv_xlsx_directory: data/csv_xlsx
   stored_csv_xlsx_sqldb_directory: data/csv_xlsx_sqldb.db
-  stored_csv_xlsx_vectordb_directory: data/csv_xlsx_vectordb
+  stored_csv_xlsx_vectordb_directory: data/csv_xlsx_vectordb.db
   for_upload_directory: data/for_upload
   stored_sqldb_directory: data/sqldb.db
   stored_chinook_sqlite_directory: data/Chinook_Sqlite.sqlite
@@ -20,5 +20,5 @@ llm_config:
   temperature: 0.0
 
 rag_config:
-  collection_name: titanic_small.csv
+  collection_name: titanic_small
   top_k: 1
